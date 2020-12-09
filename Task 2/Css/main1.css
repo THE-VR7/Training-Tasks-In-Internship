@@ -1,0 +1,226 @@
+body{
+    background: url("../Images/bg.jpg");  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Css to change the case of the text */
+.capital{
+    text-transform: uppercase;
+}
+
+/* Css for the box-sizing property */
+.border-box {
+    box-sizing: border-box;
+}
+
+/* to make the style of list as none */
+.list-style-none {
+    list-style: none;
+    padding: 0;
+}
+
+/* Coloe white css */
+.color-white{
+    color: white;
+}
+
+/* margin top-bottom by 5px*/
+.mar-topbottom-5
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Topmost header */
+.header-1{
+    width : 256px;
+    font-size : 10px;
+    color: white;
+    margin: 0px 894px;
+}
+.header-1 ul {
+    background-color: #3B5D8B;
+    margin : 0;
+    display: flex;
+    list-style: none;
+    padding: 4px 1px;
+}
+.header-1 li{
+    display: block;
+    padding : 0px 5px;
+    border-right : 1px solid white;
+}
+
+
+.listborder li:last-child{
+    border: none;
+}
+
+/* Main container section - topmost part */
+
+.mainbar
+{
+    outline: 3px solid #1C2E44;
+    border: 0.1px solid rgba(255, 255, 255, 0.308);
+    background-color: #1C2E44;
+    position: relative;
+    margin: 29px 281px 0 281px;
+    width: 865px;
+    height: 40px;
+    padding: 1px 0;
+}
+
+.navbar-image{
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    margin: -4% 2%;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 1px;
+    color: #AFDDFE;
+    margin: 5px 0;
+    
+}
+
+.navbar li{
+    display: block;
+    padding : 6px 15px;
+    height: 20px;
+}
+
+.navbar li:hover {
+    background-color: #496781;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Css for the heading section after navbar */
+.heading {
+    margin: 0 279px;
+    background: linear-gradient(to bottom,rgba(168, 166, 166, 0.212),rgba(0, 0, 0, 0.61) );
+    border: 0.1px solid rgba(0, 0, 0, 0.123);
+    border-bottom : none;
+    width: 812.5px;
+    height: 141px;
+    color: white;
+    padding : 0 28px;
+}
+
+.para-heading {
+    margin: 32px 0;
+    font-size : 38px;
+    letter-spacing: 5px;
+}
+
+/* Css for the part having all the news */
+
+.news-container{
+    border: 1px solid black;
+    width: 868px;
+    background-color: #14233A;
+    height: 500px;
+    margin: 0 279px;
+    display: flex;
+    color: white;
+    font-size: 13px;
+}
+
+/* padding by 3% */
+.pd-3
+{
+    padding: 3%;    
+}
+/* padding from right */
+.pdr-3
+{
+    padding-right: 4%;
+}
+
+/* padding from left right by 5% */
+.pdlr-5 {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* Line Height by 22px */
+.lh-22 {
+    line-height: 22px;
+}
+/* Line Height by 17px */
+.lh-17 {
+    line-height: 17px;
+}
+
+.news-block > img
+{
+    width: 224px;
+    margin-bottom: 7%;
+    height: 100px;
+}
+.news-block a{
+    color: #AEDFFD;
+}
+
+.head-2 {
+    margin: -0.9% 0;
+    color: #CAE0F7;
+    font-weight: 100;
+}
+
+/* margin - left by -3% */
+.ml-3{
+    margin: 0 -3%;
+}
+
+/* White border line */
+.border-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.158);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.158);
+
+}
+
+/* background color dark blue */
+.bg-blue{
+    background-color: #102441;
+}
+
+/* FTZ Button */
+.ftz-button{
+    border-radius: 5px;
+    background:  linear-gradient(to bottom, #1D577C, rgba(0, 0, 0, 0.185)) ;
+    border: 1px solid #1D577C;
+    margin: 2% 0;
+    color: white;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+/* Footer Section */
+
+.footer {
+    width: 868px;
+    margin: 5px 279px;
+    background-color: #29416D;
+    font-size: 12px;
+    height: 13px;
+    color: white;
+    padding: 7px 0;
+}
+
+.footer > p{
+    margin: 0 150px;
+}
+
+.footer a {
+    color: white;
+}

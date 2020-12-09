@@ -1,0 +1,161 @@
+body{
+    background: url("../Images/bg.jpg");  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.capital{
+    text-transform: uppercase;
+}
+/* Coloe white css */
+.color-white{
+    color: white;
+}
+
+/* margin top-bottom by 5px*/
+.mar-topbottom-5
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Topmost header */
+.header-1{
+    width : 256px;
+    font-size : 10px;
+    color: white;
+    margin: 0px 894px;
+}
+.header-1 ul {
+    background-color: #3B5D8B;
+    margin : 0;
+    display: flex;
+    list-style: none;
+    padding: 4px 1px;
+}
+.header-1 li{
+    display: block;
+    padding : 0px 5px;
+    border-right : 1px solid white;
+}
+
+.listborder li:last-child{
+    border: none;
+}
+
+/* Main container section - topmost part */
+
+
+.mainbar
+{
+    outline: 3px solid #1C2E44;
+    border: 0.1px solid rgba(255, 255, 255, 0.308);
+    background-color: #1C2E44;
+    position: relative;
+    margin: 29px 281px 0 281px;
+    width: 865px;
+    height: 40px;
+    padding: 1px 0;
+}
+
+.navbar-image{
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    margin: -4% 2%;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 1px;
+    color: #AFDDFE;
+    margin: 5px 0;
+    
+}
+
+.navbar li{
+    display: block;
+    padding : 6px 15px;
+    height: 20px;
+}
+
+.navbar li:hover {
+    background-color: #496781;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Css for the heading section after navbar */
+.heading {
+    margin: 0 279px;
+    background: linear-gradient(to bottom,rgba(168, 166, 166, 0.212),rgba(0, 0, 0, 0.61) );
+    border: 0.1px solid rgba(0, 0, 0, 0.123);
+    border-bottom : none;
+    width: 812.5px;
+    height: 141px;
+    color: white;
+    padding : 0 28px;
+}
+
+.para-heading {
+    margin: 32px 0;
+    font-size : 38px;
+    letter-spacing: 5px;
+}
+
+/* Css for the part having all the news */
+
+.news-container{
+    border: 1px solid black;
+    width: 868px;
+    background-color: #14233A;
+    height: 500px;
+    margin: 0 279px;
+    display: flex;
+    color: white;
+    font-size: 13px;
+}
+
+.news-block
+{
+    padding: 3%;
+}
+
+.news-block >p {
+    line-height: 18px;
+}
+
+.news-block > img
+{
+    width: 224px;
+    height: 100px;
+}
+.news-block a{
+    color: #AEDFFD;
+}
+
+/* Footer Section */
+
+.footer {
+    width: 869px;
+    margin: 5px 279px;
+    background-color: #29416D;
+    font-size: 12px;
+    height: 13px;
+    color: white;
+    padding: 7px 0;
+}
+
+.footer > p{
+    margin: 0 150px;
+}
+
+.footer a {
+    color: white;
+}
