@@ -1,0 +1,346 @@
+body{
+    background: url("../Images/background12.png");  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* to Make all the letters as Upper Case */
+.uppercase {
+    text-transform: uppercase;
+}
+/* To make the first letter uppercase */
+.capital {
+    text-transform: capitalize;
+}
+
+/* display flex css */
+.d-flex
+{
+    display: flex;
+}
+
+/* Css of padding top 10px */
+.pdtop-10
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Css of padding left 140px */
+.pdleft-140
+{
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+/* List style none */
+.list-none{
+    list-style: none;
+}
+
+/* Color grey */
+.color-grey { 
+    color: #595758b7;
+}
+
+.color-greywhite { 
+    color: #918e8fe0;
+}
+
+/* font - size 8px,10px,12px */
+.font-8 {
+    font-size: 8px;
+}
+.font-10 {
+    font-size: 10px;
+}
+.font-12 {
+    font-size: 12px;
+}
+
+
+/* font weight 100 */
+.fontwt-100{
+    font-weight: 50;
+}
+
+/* Title block and list CSS */
+.title-block {
+    padding : 2px 140px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading
+{
+    display: block;
+    color: #283869;
+    font-size: 35px;
+    font-weight: 100;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flex-list {
+    height: 30px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    list-style: none;
+    color: #BABABA;
+}
+
+.flex-list li {
+    font-size: 10px;
+    padding: 0 10px;
+}
+
+.bar {
+    font-size: 10px;
+    color: #bababa62;
+}
+
+/* display inliine css */
+.d-inline {
+    display: inline;
+}
+
+/* Menu Bar CSS */
+.menu-bar {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px solid white;
+    background-color: #DAD8D9;
+    outline: 1px solid #DAD8D9;
+    color: black;
+    font-size: 10px;
+    height: 25px;
+    
+}
+
+.menu-bar > ul{
+    padding: 0px 126px;
+    margin: 0 0;
+    align-items: stretch;
+
+    align-content: flex-end;
+}
+
+.menu-bar > ul > li{
+    padding: 7px 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.404);
+}
+.search-bar{
+    padding: 3px 10px;
+    margin : 2px 35px; 
+}
+
+/* height 15px and font-size 8px*/
+.ht-15 {
+    height: 15px;
+    font-size: 8px;
+}
+
+input[type=search]{
+    width: 130px;
+}
+
+.search-border {
+    border: none;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    outline: none;
+}
+
+input[type=submit]
+{
+    margin: 0 10px;
+}
+
+.button-border {
+    border: 1px solid grey;
+    border-radius: 5px;  
+    padding: 2px;  
+}
+
+/* Suggestion bar CSS */
+
+
+.suggestion-block
+{
+    padding: 4px 87px 0px;
+    border-bottom: 1px solid grey;
+    color: blue;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.suggestion-block > ul > li{
+    margin: 3px 15px;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: 10px;
+}
+
+.suggestion-block li:first-child{
+    list-style: none;
+}
+
+.image-bridal {
+    padding: 0px 90px;
+    align-items: center;
+}
+
+/* CSS of main containers */
+
+.main-container {
+    background-color: white;
+    padding: 5px;
+    margin: 0 140px;
+    align-items: stretch;
+}
+
+
+.menu-image > img {
+    width: 770px;
+    height: 100%;
+}
+
+.super-menu {
+    background-color: #403F3D;
+    margin: 0 4px;
+    padding: 5px;
+}
+.menu {
+    border: 1px solid rgba(255, 255, 255, 0.651);
+    color: white;
+    padding: 25px 25px;
+}
+
+.menu>p {
+    color: grey;
+}
+.menu >ul {
+ padding: 0px;
+ margin-left: -5px;   
+}
+
+.menu > ul > li
+{
+    padding: 7px 5px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.486);
+}
+
+
+/* CSS for the 3 columns after the menubar */
+
+.banner {
+    border: 5px solid black;
+    margin: 0 142px 0 142px;
+    padding: 1px;
+    height: 150px;
+    background: white;
+}
+
+.banner > div {
+    border-right: 1px solid rgba(107, 107, 107, 0.274);
+    flex: 1;
+    flex-basis: 200px;
+}
+
+.block-1{
+    background: url("../Images/promo_glass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20% 40%;
+    box-sizing: border-box;
+    padding: 2px 20px;
+    line-height: 6px;
+}
+
+.block-2{
+    background: url("../Images/promo_plates.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  -10px 5px;
+    padding: 1px 15px;
+    line-height: 6px;
+}
+
+/* Margin top 10px */
+.mtop-10
+{
+    margin-top: 10px;
+}
+
+/* Align the text center */
+.align-center{
+    text-align: center;
+}
+
+.align-right {
+    text-align: end;
+}
+
+.para-1 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.726);   
+}
+
+.para-2{
+    font-size: 12px;
+    color: rgba(128, 128, 128, 0.651);
+}
+
+.line-3 {
+    color: rgba(0, 0, 0, 0.582);  
+    font-size: 12px;
+    margin: 25px 5px;
+}
+
+.block-3 {
+    padding: 1px 0 2px 5px;
+    border: none;
+}
+
+.block-3 >p {
+    margin: 15px 15px;  
+}
+
+.block-3 > img{
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+/* Footer Section */
+.footer {
+    margin: 0 142px 95px 140px;
+    justify-content: space-between;
+}
+
+/* Color dark grey */
+.dark-grey {
+    color: rgb(54, 54, 54);
+}
+
+.section-1 > ul {
+    margin: 8px 0 0 0;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.section-1 > ul>li {
+    padding: 0 15px;
+}
+
+.section-1 > ul>li:first-child {
+padding-left: 0;
+}
+
+.section-2 {
+    margin: 0 80px;
+}

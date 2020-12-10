@@ -1,0 +1,38 @@
+Bootstrap 4:
+
+
+•	CDN is used to include bootstrap in the html files, we can include it, popper and jquery( for functions of dropdown, collapse etc.) using the link tag
+•	Containers : 
+•	Padding
+•	Grid System ( very small,small, medium, large, xl )
+•	Typography( heading, display,italic, code, abbr, pre, align)
+•	Background colors and text-color : (white,danger,dark,info,success)
+•	Table
+•	Image
+•	Jumbotron
+•	Alerts
+•	Button & Button-groups
+•	Badge
+•	Progress bar & spinners
+•	Pagination
+•	Card
+•	Dropdowns
+•	Collapse & Accordion	
+•	Navbar
+•	Forms
+
+
+SASS 
+•	Introduction
+•	Installation
+•	Variables
+•	Nesting
+•	Import
+•	Mixin
+•	Extend
+•	Functions
+
+
+
+
+
