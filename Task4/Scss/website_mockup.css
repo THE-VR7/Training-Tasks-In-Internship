@@ -1,0 +1,72 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-grey {
+  background-color: #333333;
+}
+
+/* Topmost heading of the Page */
+.heading_block {
+  background-color: #3399cc;
+  color: white;
+}
+
+/* Specific heading of Technovert */
+#heading {
+  font-size: 57px;
+  font-weight: 350;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.div_bar::after {
+  content: "*";
+  font-size: 20px;
+  color: red;
+}
+
+/* Navbar div block */
+/* For List elements of unordered list block */
+.navbar > ul > a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  background-color: #333333;
+  color: white;
+}
+
+.curson_pointer:hover {
+  cursor: pointer;
+}
+
+/* Hover for the list element of unordered list of navbar  */
+.hover:hover {
+  background-color: yellow;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Section of HOME-content after navbar */
+/* News block present inside the content */
+.news_block {
+  border: 1px solid #7a7a7a;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 50vw;
+  padding: 10px;
+}
+
+/* description data present in the news block */
+.news_block dd {
+  margin: 1.7vh 0 0 2%;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Section of HOME-content after navbar */
+.text_area {
+  resize: none;
+  overflow-y: scroll;
+}
+/*# sourceMappingURL=website_mockup.css.map */
