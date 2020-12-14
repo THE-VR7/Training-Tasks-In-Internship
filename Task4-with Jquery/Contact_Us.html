@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website_mockup</title>
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="Scss/website_mockup.css">
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- Including JQuery From CDN -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body id="parent-block" >
+    <!-- Main heading at the top -->
+    <div class="container-fluid heading_block p-3 ">
+        <h2 id="heading">TECHNOVERT</h2>
+    </div>
+
+    <!-- Navbar  -->
+    <div class=" container-fluid navbar d-flex justify-content-between 
+        align-items-center text-white color-grey p-0">
+        <!-- List -->
+        <ul id="navbar-list" class=" list-group list-group-horizontal font-weight-bold  " >
+            <a href="Website_mockup.html"
+            class="hover  list-group-item  pb-1 pt-2 text-decoration-none border-0"
+            > HOME</a>
+            
+            <a href="Section.html" class="hover list-group-item pb-1 pt-2 text-decoration-none border-0">SERVICES</a>
+            
+            <a href="Careers.html"
+            class="hover list-group-item pb-1 pt-2 text-decoration-none border-0"
+            >CAREERS</a>
+            
+            <a href="#"
+            class="hover active list-group-item pb-1 pt-2 text-decoration-none"
+              >
+            CONTACT</a>
+        </ul>
+        <!-- Blog Image -->
+        <img src="Images/blog-icon.png" alt="Blog Image" class="img-fluid mx-4" id="blog_image"> 
+    </div>
+
+
+    <!-- Contact Us Section -->
+    <section class=" contactus-content container-fluid pt-4 px-5 " data-parent="#parent-block" id="contact-us">
+
+        <!-- Form -->
+        <form class=" container mt-5" id="contact_form" name="contactus_form" action="#" 
+         onsubmit="return checkform()">
+            <!-- For Name -->
+            <h4 class="text-danger error-class font-weight-bold d-none" id="error_required_values">Please fill all the fields required below</h4>
+            <div class="row my-4 align-items-center ">
+                <div class="col-md-3 pt-2  font-weight-bold">
+                    <label for="name_id">My Name:</label>
+                </div>
+                <div class="col-md-3 pr-2 div_bar d-inline-flex">
+                    <input type="text" placeholder="Enter Name" id="name_id" name="fname" class="form-control ">
+                </div>
+                <span class="col-md-2 error-class text-danger d-none" id="name_error">
+                    Name is required
+                </span>
+                
+            </div>
+            <!-- For Email Address -->
+            <div class="row my-4 align-items-center">
+                <div class="col-md-3 d-flex align-items-end pt-2 font-weight-bold">
+                    <label for="email_id">My Email Address:</label>
+                </div>
+                <div class="col-md-3 pr-2 div_bar d-inline-flex">
+                    <input type="text" placeholder="Enter Email" id="email_id" name="femail" class="form-control">
+                </div>
+                <span class="col-md-2 error-class text-danger d-none " id="email_empty_error">
+                    Email is required
+                </span>
+                <span class="col-md-3 error-class text-danger d-none " id="email_pattern_error">
+                    Email Pattern is Wrong
+                </span>
+            </div>
+            <!-- For Gender -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-center font-weight-bold">
+                    <label for="">Gender:</label>
+                </div>
+                <div class="col-md-3  d-flex align-items-start justify-content-around">
+                <div class=" ">
+                    <input type="radio" id="gender_male" name="gender-info" class="">
+                    <label for="gender_male" class="curson_pointer">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="gender_female" name="gender-info" class="">
+                    <label for="gender_female" class="curson_pointer">Female</label>
+                </div>
+                </div>
+            </div>
+            <!-- Telephone Number -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-end font-weight-bold">
+                    <label for="number_id">My Telephone Number:</label>
+                </div>
+                <div class="col-md-3 ">
+                    <input type="tel" id="number_id" maxlength="10" placeholder="Enter 10 digit Number" 
+                    class="form-control">
+                </div>
+            </div>
+            <!--  Organization Name -->
+            <div class="row my-4 align-items-center">
+                <div class="col-md-3 d-flex align-items-end pt-2 font-weight-bold">
+                    <label for="org_name">My Organization Name:</label>
+                </div>
+                <div class="col-md-3 div_bar pr-2  d-inline-flex">
+                    <input type="text" placeholder="Enter Organization Name" name="forg_name" id="org_name" class="  form-control w-100">
+                </div>
+                <span class="col-md-4 error-class text-danger d-none" id="org_error">
+                    Organization Name is required
+                </span>
+            </div>
+            <!-- For City -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-end font-weight-bold">
+                    <label for="city_id">My City:</label>
+                </div>
+                <div class="col-md-3 ">
+                    <input type="text" id="city_id" placeholder="Enter City" class="form-control">
+                </div>
+            </div>
+            <!-- For State/Province -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-end font-weight-bold">
+                    <label for="state_Selection">My State or Province:</label>
+                </div>
+                <div class="col-md-3 ">
+                    <select name="Choose State" onchange="changepromo_code()" 
+                    class="w-100 curson_pointer h-100" id="state_Selection">
+                        <option value="" class="d-none">Select State or Province</option>
+                        <option value="Uttar">Uttar Pradesh</option>
+                        <option value="A.P">Andhra Pradesh</option>
+                        <option value="M.P">Madhya Pradesh</option>
+                        <option value="Pun">Punjab</option>
+                        <option value="J&K">Jammu & Kashmir</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Kerala">Kerala</option>
+                    </select>
+                </div>
+            </div>
+            <!-- For contact me for -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-center font-weight-bold">
+                    <label for="">Please Contact Me By:</label>
+                </div>
+                <div class="col-md-3 pl-3 d-flex flex-column align-items-start">
+                <div class="">
+                    <input type="radio" id="email" name="contact-info" class="">
+                    <label for="email" class="curson_pointer">Email</label>
+                </div>
+                <div>
+                    <input type="radio" id="phone" name="contact-info" class="">
+                    <label for="phone" class="curson_pointer">Phone</label>
+                </div>
+                <div>
+                    <input type="radio" id="both" name="contact-info" class="">
+                    <label for="both" class="curson_pointer">Both</label>
+                </div>
+                </div>
+            </div>
+            <!-- Promo Code -->
+            <div class="row my-4">
+                <div class="col-md-3 d-flex align-items-end font-weight-bold">
+                    <label for="">Promotion Code:</label>
+                </div>
+                <div class="col-md-3 ">
+                    <input type="text" placeholder="Enter Code" id="promo_id" class="form-control">
+                </div>
+            </div>
+            <!-- Optional information -->
+            <div class="row px-3 d-flex flex-column">
+                <h4>Optional Information</h4>
+                <p>This information is optional but it will help us to serve you better.</p>
+            </div>
+            <!-- For website address -->
+            <div class="row align-items-center">
+                <div class="col-md-3 d-flex pt-2 align-items-end font-weight-bold">
+                    <label for="">My Website Address is:</label>
+                </div>
+                <div class="col-md-3 ">
+                    <input type="text" name="website_name" placeholder="Enter Website Address" class="form-control">
+                </div>
+                <span class="col-md-3 error-class text-danger d-none " id="website_pattern_error">
+                    Website address is Wrong
+                </span>
+            </div>
+            <!-- more about organization -->
+            <div class="row my-4">
+                <div class=" col-md-6 d-flex flex-column">
+                <label for="oraganization_info">Tell Us more about your organization:</label>
+                <textarea name="organization_box" 
+                placeholder="Please Tell More about the Organization" 
+                id="oraganization_info" class="text_area" cols="20" rows="5"></textarea>
+            </div>
+        </div>
+            <!-- What I want to know -->
+            <div class="row my-4">
+                <div class="col-md-6 d-flex flex-column">
+                    <label for="query_info">What I'd really like to know is:</label>
+                    <textarea name="query_box" id="query_info"
+                    placeholder="What Do You want to Know" 
+                    class="text_area" cols="20" rows="5"></textarea>
+            </div>
+            </div>
+            
+            <!-- Submission button -->
+            <div class="row my-4  ">
+                <div class="col-md-5  d-flex align-items-center ">
+                    <button type="submit" class="btn font-weight-bold 
+                    h-100 
+                    btn-block btn-outline-dark 
+                    text-dark bg-light "
+                    >
+                        Send Message
+                    </button>
+                    <button type="button" class="btn font-weight-bold 
+                            btn-block btn-outline-dark 
+                            h-100 my-0 mx-2
+                            text-dark bg-light" id="reset_form">Clear Form
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!-- JS -->
+    <script src="Script/contact_us.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
