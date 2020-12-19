@@ -1,0 +1,121 @@
+<!-- <app-home></app-home> -->
+
+<div class="modal1 " id="myModal">
+    <div class="container modal-content box-shadow bg-white pt-3 col-5 pb-4" > 
+   
+        <!-- Error Heading & Close Button -->
+    <div class="d-flex justify-content-end pl-3">
+        <span class="close  close-modal" (click)="close_modal()" id="closebtn">&times;</span>
+    </div>
+    <!-- Contact Form HTML Begins from here -->
+        <form action="#" class=" mt-0 " id="addContactform" name="addform"
+        [formGroup] = "contactForm"
+        >
+
+        <div class="w-75 d-flex flex-wrap justify-content-between pl-3 ">
+        
+            <!-- Name formGroup -->    
+            <div class="form-group w-100 position-relative ht-70">
+              <label for="name" class=" small my-0 font-weight-bolder required-info ">Name</label>
+              <input type="text" class="form-control" name="name"
+              formControlName="name"
+              [ngClass]="{ 'is-valid' : contactForm.get('name').valid && contactForm.get('name').dirty ,
+                           'is-invalid' : contactForm.get('name').invalid && contactForm.get('name').dirty 
+                        }"
+              id="formname" placeholder="Enter Name">
+              <!-- Error p block for Name in Contact Form -->
+              <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.name">
+                <span  *ngIf="contactForm.get('name').hasError(validation.type) && (contactForm.get('name').dirty || contactForm.get('name').touched || formSubmitted)">{{validation.message}}</span>
+            </p>
+            </div>
+
+            <!-- Email FormGroup  -->
+            <div class="form-group w-100 position-relative ht-70">
+                <label for="Email" class=" small my-0 font-weight-bolder required-info">Email</label>
+                <input type="email" class="form-control " name="email"
+                formControlName="email"
+                [ngClass]="{ 'is-valid' : contactForm.get('email')?.valid && contactForm.get('email').touched ,
+                            'is-invalid' : contactForm.get('email')?.invalid && contactForm.get('email').touched 
+                        }"
+                id="formemail" placeholder="Enter Email">
+                <!-- Error p block for Email in forms -->
+                <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.email">
+                    <span  *ngIf="contactForm.get('email').hasError(validation.type) && (contactForm.get('email').dirty || contactForm.get('email').touched || formSubmitted)">{{validation.message}}</span>
+                </p>
+            </div>
+
+            <!-- Mobile FormGroup -->
+            <div class="form-group w-40 position-relative ht-70">
+                <label class=" small my-0 font-weight-bolder required-info" for="Mobile ">Mobile</label>
+                <input type="tel" class="form-control number-input"
+                formControlName="mobile"
+                maxlength="10"
+                name="mobile" id="formmobile"
+                placeholder="Enter 10 digit Number"
+                [ngClass]="{ 'is-valid' : contactForm.get('mobile').valid && contactForm.get('mobile').touched ,
+                             'is-invalid' : contactForm.get('mobile').invalid && contactForm.get('mobile').touched 
+                            }"
+                >
+                
+              <!-- Error p block for mobile in Contact Form -->
+              <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.mobile">
+                <span  *ngIf="contactForm.get('mobile').hasError(validation.type) && (contactForm.get('mobile').dirty || contactForm.get('mobile').touched || formSubmitted)">{{validation.message}}</span>
+              </p>           
+            </div>
+            
+             
+            <!-- LandLine FormGroup -->
+            <div class="form-group w-40  ml-2 position-relative ht-70">
+                <label class=" small my-0 font-weight-bolder" for="LandLine">LandLine</label>
+                <input type="tel" 
+                formControlName="landline"
+                class="form-control number-input" maxlength="10"
+                [ngClass]="{ 'is-valid' : contactForm.get('landline').valid && contactForm.get('landline').touched && contactForm.get('landline').value?.length > 0 ,
+                             'is-invalid' : contactForm.get('landline').invalid && contactForm.get('landline').touched 
+                            }"
+                name="landLine" id="formlandline" placeholder="Enter 10 digit Number">
+                
+                <!-- Error p block for landline in Contact Form -->
+                <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.landline">
+                    <span  *ngIf="contactForm.get('landline').hasError(validation.type) && (contactForm.get('landline').dirty || contactForm.get('landline').touched || formSubmitted)">{{validation.message}}</span>
+                  </p>   
+            </div>
+
+            <!-- Website FormGroup -->
+            <div class="form-group w-100 position-relative ht-70">
+                <label class=" small my-0 font-weight-bolder" for="Website">Website</label>
+                <input type="text" class="form-control" name="website"
+                formControlName="website"
+                 id="formwebsite" aria-describedby="helpId" placeholder="Enter Website Address"
+                 [ngClass]="{ 'is-valid' : contactForm.get('website').valid && contactForm.get('website').touched && contactForm.get('website').value?.length > 0 ,
+                             'is-invalid' : contactForm.get('website').invalid && contactForm.get('website').touched 
+                            }"
+                 >
+
+                 <!-- Error p block for website in Contact Form -->
+                <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.website">
+                    <span  *ngIf="contactForm.get('website').hasError(validation.type) && (contactForm.get('website').dirty || contactForm.get('website').touched || formSubmitted)">{{validation.message}}</span>
+                </p>   
+            </div>
+
+            <!-- Address FormGroup -->
+            <div class="form-group w-100">
+              <label class=" small my-0 font-weight-bolder" for="address">Address</label>
+              <textarea class="form-control text_area" name="address"
+              formControlName="address"
+               id="formaddress" rows="4"
+              placeholder="Please Enter Your Address Details" 
+              ></textarea>
+            </div>
+        </div>
+
+        <!-- Add and Cancel Buttons -->
+        <div class=" d-flex justify-content-end align-items-center">
+            <button type="button" class="w-25 bg-danger btn text-white close-modal" (click)="close_modal()" >Cancel</button>
+            <button type="button" [disabled] = "!contactForm.valid"
+            class="w-25 bg-success curson_disabled btn ml-4 text-white" (click)="saveContact()">{{isEdit ? 'Update' : 'Add'}}</button>
+        </div>
+        </form>
+
+    </div>
+</div>

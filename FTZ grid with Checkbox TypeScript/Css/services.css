@@ -1,0 +1,331 @@
+body{
+    background: url("../Images/bg.jpg");  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.capital{
+    text-transform: uppercase;
+}
+/* Coloe white css */
+.color-white{
+    color: white;
+}
+
+.cursor-pointer { 
+    cursor: pointer;
+}
+
+/* margin top-bottom by 5px*/
+.mar-topbottom-5
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Topmost header */
+.header-1{
+    width : 256px;
+    font-size : 10px;
+    color: white;
+    margin: 0px 894px;
+}
+.header-1 ul {
+    background-color: #3B5D8B;
+    margin : 0;
+    display: flex;
+    list-style: none;
+    padding: 4px 1px;
+}
+.header-1 li{
+    display: block;
+    padding : 0px 5px;
+    cursor: pointer;
+    border-right : 1px solid white;
+}
+
+.listborder li:last-child{
+    border: none;
+}
+
+mark {
+    color:black;
+    background-color: whitesmoke;
+}
+
+/* Main container section - topmost part */
+
+
+.mainbar
+{
+    outline: 3px solid #1C2E44;
+    border: 0.1px solid rgba(255, 255, 255, 0.308);
+    background-color: #1C2E44;
+    position: relative;
+    margin: 29px 281px 0 281px;
+    width: 865px;
+    height: 40px;
+    padding: 1px 0;
+}
+
+.navbar-image{
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    margin: -4% 2%;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 1px;
+    color: #AFDDFE;
+    margin: 5px 0; 
+}
+
+.navbar li{
+    display: block;
+    padding : 6px 10px;
+    height: 20px;
+    margin: 0 1px;
+    position: relative;
+}
+
+.navbar li + li::before {
+    position: absolute;
+    top: 1;
+    margin-left: -13px;
+    color: white;
+    content: "|";
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #AFDDFE;
+}
+
+.navbar li:hover {
+    background-color: #496781;
+    color: white;
+    border-radius: 10px;
+}
+
+.active {
+    background-color: #496781;
+    color: white;
+    border-radius: 10px;
+}
+
+
+/* Css for the heading section after navbar */
+.heading {
+    margin: 0 279px;
+    background: linear-gradient(to bottom,rgba(168, 166, 166, 0.212),rgba(0, 0, 0, 0.61) );
+    border: 0.1px solid rgba(0, 0, 0, 0.123);
+    border-bottom : none;
+    width: 812.5px;
+    height: 141px;
+    color: white;
+    padding : 0 28px;
+}
+
+.para-heading {
+    margin: 32px 0;
+    font-size : 38px;
+    letter-spacing: 5px;
+}
+
+/* Css for the part having all the news */
+
+.grid-container{
+    width: 868px;
+    background-color: #10223bc2;
+    height: 500px;
+    margin: 50px 279px 20px;
+    padding: 3px 5px 6px;
+    display: flex;
+    box-sizing: border-box;
+    color: white;
+    font-size: 13px;
+}
+
+.grid-container-block { 
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-image : linear-gradient(45deg,rgba(247, 233, 233, 0.281),#10223b0a,rgba(247, 233, 233, 0.295),#10223b0a);
+    border-image-slice: 2; 
+    border-top: 0;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.search-block {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.searched_row { 
+    background-color: rgba(255, 255, 255, 0.562);
+    color: black;
+    /* font-size: 20px; */
+}
+
+.input-search {
+    padding-left: 15px;
+    outline: none;
+}
+
+.grid-table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    height: 75%;
+    border: 2px solid white;
+}
+.grid-table td, .grid-table th { 
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.col-checkbox, .col-score  {
+    width: 5%;
+}
+
+
+.grid-table tr { 
+    height: 30px;
+}
+
+
+.grid-table tr:last-child { 
+    height: 100px;
+}
+
+/* Checkbox CSS */
+
+.checkbox-container { 
+    position: relative;
+}
+
+.checkdiv {
+    width: 16px;
+}
+
+.checkbox-container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+}
+
+.checkmark {
+    /* margin: auto; */
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    height: 13px;
+    width: 15px;
+    display: block;
+    background-color: transparent;
+    border: 1px solid rgba(148, 148, 148, 0.74);
+}
+
+.checkbox-container:hover input ~.checkmark { 
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.checkbox-container input:checked ~.checkmark { 
+    background-color: transparent;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~.checkmark:after { 
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+.calculate-block { 
+    margin-top: 18px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculate-button  {
+    border: none;
+    outline: none;
+     cursor: pointer;
+    background: #28416D;
+    padding: 5px 20px 5px 15px;
+    color: white;
+    font-size: 12px;
+}
+
+.calculate-button:hover{
+    background: #172c50;
+}
+
+
+.font-size-17{
+    font-size: 17px;
+}
+.align-left {
+    text-align: left;
+}
+
+.col-name { 
+    width: 25%;
+}
+
+.col-email {
+    width: 35%;
+}
+
+
+/* Footer Section */
+
+.footer {
+    width: 869px;
+    margin: 5px 279px;
+    background-color: #29416D;
+    font-size: 12px;
+    height: 13px;
+    color: white;
+    padding: 7px 0;
+}
+
+.footer > p{
+    margin: 0 150px;
+}
+
+.footer a {
+    color: white;
+}

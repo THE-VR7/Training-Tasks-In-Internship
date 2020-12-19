@@ -1,0 +1,54 @@
+<ng-container *ngIf="!contact">
+    <h1 id="noContactDisplay" class="col-md-12 text-danger " >No contacts to display</h1>    
+</ng-container>
+<ng-container *ngIf="contact">
+<div class=" col-md-12 ml-5 full_detail_display " #elseTemplate>
+                <div class="mt-n2 d-flex justify-content-between  align-items-center">
+                <h3 id="name_id">{{contact.name}}</h3>
+                <div class=" d-flex modify-card justify-content-start align-items-center ">
+                    <a  
+                    (click)='edit_contact_bttn()'
+                    [routerLink]="[ '/contactform','EDIT' ]"
+                    class="d-flex align-items-center text-decoration-none edit_card text-dark  ">
+                    <img src="../assets/edit1.jpg"  alt="Edit Icon" id="edit_card" class="Edit-delete-tab edit_card mr-1">
+                        Edit
+                    </a>
+                    <a (click)="delete_the_contact_card()"  class="cursor_pointer d-flex text-decoration-none align-items-center delete_card text-dark ml-5 mr-1">
+                        <img src="../assets/delete1.png" alt="Edit Icon" id="delete_card" class="Edit-delete-tab  ">
+                        Delete
+                    </a>
+                </div>
+            </div>
+                <p class="my-4" >Email: <span id="email_id">{{contact.email}}</span></p>
+                <p class="d-flex flex-column modify-card">
+                    <span>Mobile:<span id="mobile_no">+91 {{contact.mobile}}</span></span>
+                    <span>
+                        Landline:
+                        <ng-container *ngIf="(contact?.landline != undefined && contact.landline.toString().length > 0 ) ; else elseTemplate">
+                            <span >+91 {{contact.landline}}</span>    
+                        </ng-container>
+                    </span>
+                </p>
+                <p class="my-3 modify-card">
+                    <span class="pr-1">Website:</span>
+                    <ng-container *ngIf="(contact?.website?.length > 0); else elseTemplate">
+                        <span id="website_id">{{contact?.website}}</span>
+                    </ng-container>
+                </p>
+
+                <p class="d-flex modify-card"><span class="pr-2">Address:</span>
+                    <ng-container *ngIf="(contact?.address?.length > 0); else elseTemplate">
+                        <span id="address" class="ml-3 w-50">
+                            {{contact?.address}}
+                        </span>
+                    </ng-container>
+                </p>
+                <!-- Else block for all the 3 fields if these fields are empty , then this will appear -->
+                <ng-template #elseTemplate>
+                    <span class="text-muted ml-3"> -- Not Set --</span>
+                    <a (click)='edit_contact_bttn()'
+                    [routerLink]="[ '/contactform','EDIT' ]"
+                    class="text-decoration-none edit_card add_link ml-5" > Add Now </a>
+                </ng-template>
+            </div>
+        </ng-container>

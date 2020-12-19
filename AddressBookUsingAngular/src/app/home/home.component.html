@@ -1,0 +1,12 @@
+<!-- Contacts Heading -->
+<h4 class="p-3 px-4 font-weight-bolder">Contacts</h4>
+
+<!-- Parent container for the the below list and displaying addresses-->
+<div class="container-fluid py-3 px-4  h-100">
+    <div class="row">
+        <!-- Column which contains the list of all the contacts present currently -->
+        <app-contact-list class="col-md-4" [deleteContactCard]="contactToBeDeleted"  (messageEvent)="receiveContact($event)"  ></app-contact-list>   
+        <!-- Column which will display the informaation when clicked on the specific list item of contact -->
+        <app-contact-details class=" col-md-5" (contactDeleteEvent)="deleteContact($event)"  [contact]="currentContact" ></app-contact-details>
+    </div>
+</div>

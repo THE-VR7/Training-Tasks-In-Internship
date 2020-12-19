@@ -1,0 +1,14 @@
+<div class=" ml-1 ">
+    <ul class="list-group contact-list-cards"  >
+        <li class="list-group-item py-0 px-3 position-relative"
+        [ngClass]="{'bg-light border border-primary rounded': selectedli==i}"
+        *ngFor="let currcontact of contacts; let i=index" >
+            <p  class="stretched-link contact-name  curson_pointer text-decoration-none name-heading m-0" 
+            (click)='display_the_contact_information(currcontact,i)'
+            [ngClass]="{'text-primary': selectedli==i}"
+            > {{currcontact.name}} </p>
+            <p class=" text-secondary m-0 mx-2 ">{{currcontact.email}}</p>
+            <p class=" text-secondary m-0 mx-2 mb-2" >+91 {{currcontact.mobile}}</p>    
+        </li>
+    </ul>
+</div>

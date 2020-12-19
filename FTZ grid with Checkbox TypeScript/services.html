@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="Css/services.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Topmost header -->
+    <div class="header-1 topmost-header listborder">
+        <ul>
+            <li>Request a Quote</li>
+            <li>Client Login</li>
+            <li>Vehicle Export Portal</li>
+        </ul>
+    </div>
+
+    <!-- Main container Section -->
+    <div class="continer1">
+        <!-- topmost part -->
+        <div class="mainbar">
+            <img src="Images/logo.png" class="navbar-image" alt="Logo">
+
+            <ul class="navbar capital">
+                <li class="cursor-pointer"><a href="page1.html">Home</a></li>
+                <li class="cursor-pointer"><a href="#">About ftzws</a></li>
+                <li class="cursor-pointer active"><a href="#">our services</a></li>
+                <li class="cursor-pointer"><a href="page2.html">our clients</a></li>
+                <li class="cursor-pointer"><a href="#">contact us</a></li>
+            </ul>
+        </div>
+
+        <!-- Main part having the grid -->
+        <div class="grid-container">
+            <div class="grid-container-block">
+                <!-- Search bar -->
+                <div class="search-block">
+                    <input type="search" placeholder="search" class="input-search" id="search_bar">
+                </div>
+                <!-- Grid -->
+                <table class="grid-table">
+                    <!-- Heading row -->
+                    <tr class="Heading-row">
+                        <th class="col-checkbox align-left">
+                            <div class="checkdiv">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="input-checkbox parent-checkbox" onclick="selectallboxes()">
+                                <span class="checkmark "></span>
+                            </label>
+                        </div>
+                        </th>
+                        <th class="col-name align-left font-size-17">NAME</th>
+                        <th class="col-score score align-left font-size-17">SCORE</th>
+                        <th class="col-email align-left font-size-17">EMAIL</th>
+                        <th class=""></th>
+                    </tr>
+                    <tr class="child-row" >
+                        <td class="col-checkbox">
+                        <div class="checkdiv">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="input-checkbox child-checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        </td>
+                        <td>Vijay Prakash</td>
+                        <td class="score">34</td>
+                        <td>vijay@technovert.com</td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td>
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>Sashi pagadala</td>
+                        <td class="score">21</td>
+                        <td>sashi@technovert.com</td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td class="col-checkbox">
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>Samuel R</td>
+                        <td class="score">10</td>
+                        <td>sam@technovert.com</td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td class="col-checkbox">
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>Ajay Prakash</td>
+                        <td class="score">48</td>
+                        <td>ajay@technovert.com</td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td>
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="score"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td>
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="score"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td>
+                            <div class="checkdiv">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="input-checkbox child-checkbox ">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="score"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="child-row">
+                        <td></td>
+                        <td></td>
+                        <td class="score"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <!-- Calculate Section -->
+                <div class="calculate-block">
+                    <button class="calculate-button" type="button" id="calculate_score">Calculate</button>
+                    <span id="average">Average : 0</span>
+                    <span id="max">Max : 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section  -->
+    <div class="footer">
+        <p>
+            Copyright &#169; 2010 FTZ World Services. All rights reserved.
+            <a href="#">Contact Us</a> | <a href="#">Request a Quote</a>
+        </p>
+    </div>
+
+
+    <script> var exports = {}; </script>
+    <script src="Scripts/services.js"></script>
+</body>
+
+</html>
