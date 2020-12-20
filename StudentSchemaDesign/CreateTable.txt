@@ -1,0 +1,80 @@
+// Creating Student Table
+Create Table Student(
+	Id int not null Primary key IDENTITY(1,1),
+	FirstName varchar(max) not null,
+	MiddleName varchar(max) null,
+	LastName varchar(max) null,
+	BirthDate DATE not null,
+	Gender bit not null,
+	Status bit not null,
+	HomeAddress varchar(max) null,
+	MobileNumber int not null,
+	ClassId int not null,
+	ParentId int not null
+);
+
+// Parent Table
+Create Table Parent(
+	Id int not null Primary key IDENTITY(1,1),
+	FatherName varchar(max) not null,
+	FaterMobileNumber int not null,
+	FatherProfession varchar(max) not null
+	MotherName varchar(max) not null,
+	MotherMobileNumber int not null,
+	MotherProfession varchar(max) not null,
+	HomeAddress varchar(max) not null,
+);
+
+// Class Table
+Create Table Class(
+	Id int not null Primary Key IDENTITY(1,1),
+	Name varchar(max) not null,
+	Section char(3) not null,
+	TeacherID int null
+);
+
+// Teacher Table
+Create Table Teacher(
+	Id int not null Primary Key IDENTITY(1,1),
+	FirstName varchar(max) not null,
+	MiddleName varchar(max) null,
+	LastName varchar(max) null,
+	BirthDate DATE not null,
+	Gender bit not null,
+	EmploymentStatus bit not null,
+	HomeAddress varchar(max) null,
+	MobileNumber int not null,
+	HoursTaught int not null,
+	DesignationId int not null,
+);
+
+// Designation Table
+Create Table Designation (
+	Id int not null Primary Key IDENTITY(1,1),
+	Name varchar(max) not null,
+	BasicPay int not null,
+	Bonus int null,
+	AnnualIncrement int null,
+	HoursPerMonth int not null,
+	BonusPerExtraHour int null
+);
+
+// Marks Table
+Create table Marks(
+	Id int not null Primary Key IDENTITY(1,1),
+	StudentId int not null,
+	Class varchar(40) not null,
+	Marksheet varchar(max) null,
+);
+
+//Subject Table
+Create table Subject(
+	Id int not null Primary Key IDENTITY(1,1),
+	Name varchar(max) not null,
+	Syllabus varchar(max) not null,
+	TeacherId int null,
+	ClassId int not null
+);
+
+
+
