@@ -1,0 +1,130 @@
+<!-- <div class="container mt-5">
+
+    <!-- Custom CheckBoxes -->
+    <!-- <div class="checkdiv bg-light ">
+        <label class="checkbox-container">
+            <input type="checkbox" class="input-checkbox parent-checkbox " >
+            <span class="checkmark "></span>
+            43
+        </label>
+    </div> -->
+
+
+
+    <!-- <form [formGroup]="bookingForm" (ngSubmit)="submitForm()"> -->
+
+        <!-- <div class="form-group">
+            <label for="FormControl">Select Seat Number</label>
+            <input type="text" class="form-control" formControlName="seatnumber" placeholder="seatnumber">
+            <select formControlName="seatnumber" class="form-control">
+                <option [ngValue]="null" disabled>Choose your SeatNumber</option>
+                <option *ngFor="let seat of AvailableSeats" [ngValue]="seat">
+                 {{ seat }}
+                </option>
+              </select> 
+        </div> -->
+
+
+
+        <!-- <div class="form-group">
+            <div>
+                <label for="" class="form-label">Select Seat Number</label>
+            </div>
+
+            <div class="form-check form-check-inline" *ngFor="let control of seatsArray.controls; let i = index;"> -->
+
+                <!--    -->
+
+                <!-- <div *ngIf="!seats[i].isBooked;" class="mb-2 ml-2 d-flex flex-column justify-content-center ">
+                    <input class="form-check-input cursor-pointer" type="checkbox" (change)="getSelectedSeatsValue()"
+                        [formControl]="$any(control)" id="inlineCheckbox{{i}}">
+                    <label class="form-check-label cursor-pointer"
+                        for="inlineCheckbox{{i}}">{{seats[i].seatNumber}}</label>
+                </div> -->
+
+                <!-- Display the Disabled Checkbox if the seat is already booked -->
+                <!-- [formControl] = "$any(control)"  (change)="getSelectedSeatsValue()" -->
+                <!-- <div *ngIf="seats[i].isBooked;" class=" mb-2 ml-2 d-flex flex-column justify-content-center ">
+                    <input class="form-check-input cursor-disable1" type="checkbox" [disabled]=true
+                        id="inlineCheckbox{{i}}">
+                    <label class="form-check-label cursor-disable1 text-danger"
+                        for="inlineCheckbox{{i}}">{{seats[i].seatNumber}}</label>
+                </div>
+
+            </div>
+        </div> -->
+
+
+        <!--  -->
+
+        <!-- [disabled]="!bookingForm.valid" -->
+        <!-- <div class="form-group">
+            <button type="submit" [disabled]="seatsSelectionError || bookingForm.invalid"
+                class="cursor-disable btn btn-primary mb-3">Book Ticket</button>
+        </div>
+    </form>
+</div>  -->
+
+<div class=" bookinghall " >
+
+    <div class=" d-flex flex-column align-items-center w-100 " >
+        <p class=" text-secondary " >All Eyes Here Please</p>
+        <img src="../../assets/images/screenimage.JPG  " class=" w-75 " alt="">
+    </div>
+
+    <!-- front Row Seats -->
+    <div class=" d-flex flex-column align-items-center mt-4 " >
+        <h6 class="  text-secondary  ">Front Row Seats</h6>
+        <div class=" d-flex flex-row flex-wrap justify-content-start " >
+            <div class="checkdiv  my-1 mx-2" *ngFor="let seat of frontSeats; let i = index" >
+                <label class="checkbox-container" [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked,'cursor-pointer': !seat.isBooked}"  >
+                    <input type="checkbox" (change)="ToggleSeat(seat)" [disabled] = "seat.isBooked" class=" input-checkbox parent-checkbox " >
+                    <span class="checkmark " [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked}"></span>
+                    <span class="  "  >{{seat.seatNumber}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Row Seats -->
+    <div class=" d-flex flex-column align-items-center mt-3 " >
+        <h6 class="  text-secondary ">Middle Row Seats</h6>
+        <div class=" d-flex flex-row flex-wrap justify-content-start " >
+            <div class="checkdiv my-1 mx-3" *ngFor="let seat of middleSeats; let i = index" >
+                <label class="checkbox-container" [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked,'cursor-pointer': !seat.isBooked}">
+                    <input type="checkbox" (change)="ToggleSeat(seat)" [disabled] = "seat.isBooked" class="input-checkbox parent-checkbox " >
+                    <span class="checkmark " [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked}"></span>
+                    <span [ngClass]="{'text-danger': seat.isBooked,'text-dark': !seat.isBooked}" >{{seat.seatNumber}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Last Row Seats -->
+    <div class=" d-flex flex-column align-items-center mt-3">
+        <h6 class="  text-secondary " >Last Row Seats</h6>
+        <div class=" d-flex flex-row flex-wrap justify-content-start align-self-start" >
+            <div class="checkdiv my-2 mx-3 " *ngFor="let seat of lastSeats; let i = index" >
+                <label class="checkbox-container" [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked,'cursor-pointer': !seat.isBooked}">
+                    <input type="checkbox" (change)="ToggleSeat(seat)" [disabled] = "seat.isBooked" class="input-checkbox parent-checkbox " >
+                    <span class="checkmark " [ngClass]="{'text-danger cursor-disable1 cursor-disable' : seat.isBooked}" ></span>
+                    <span [ngClass]="{'text-danger': seat.isBooked}" >{{seat.seatNumber}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show the Total Amount and Save Button -->
+    <div class=" mt-4 d-flex flex-row justify-content-between px-4 " >
+        <div class=" d-flex flex-column  " >
+            <h5>Pay : {{totalAmount}}</h5>
+            <h6 class=" mt-0 " >Total Tickets : {{totalTickets}} </h6>
+        </div>
+        
+        <button type="submit" 
+        [disabled]="totalTickets==0"
+        (click)="bookTickets()"
+        class="cursor-disable btn btn-primary mb-3">Book Ticket</button>
+    </div>
+</div>
+

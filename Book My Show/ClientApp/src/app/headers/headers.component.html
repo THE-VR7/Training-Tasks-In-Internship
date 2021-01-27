@@ -1,0 +1,85 @@
+<div class=" container-fluid mainnavbar px-5 " >
+  <nav class=" navbar navbar-expand-lg  navbar-dark ">
+    <a class="navbar-brand" [routerLink]="[ '/home' ]" routerLinkActive="active">Book My Show</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse offset-2" id="navbarTogglerDemo02">
+        <form class="form-inline w-75 my-2 my-lg-0 dropdown show">
+            <input class="form-control w-75 mr-sm-2 "
+            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            #movieSearchInput
+             type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+            <!-- <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a> -->
+            
+              <div class="dropdown-menu w-75 p-0 " aria-labelledby="dropdownMenuLink">
+                <ul class="mb-0 pl-4">
+                  <li  *ngFor="let movie of searchedMovies " class="dropdown-item pl-2 pt-2  bg-white  d-flex align-items-center align-content-start flex-row justify-content-start " >
+                    <img class="mt-n2 search-image" [src]="movie?.movieImageUrl" alt="Card image cap" >
+                    <div class=" ml-3 position-relative cursor-pointer">
+                      <h4>
+                        <a class="card-title text-decoration-none bg-white stretched-link" [routerLink]="['/showdetail', movie?.id ]" >{{movie?.name}}</a>
+                      </h4>
+                      <p class=" mt-0 text-black-50 " > ( {{movie.releaseDate | date:'fullDate'}} )</p>
+                    </div>
+                  </li>
+                  <li *ngIf="isSearching" class="dropdown-item pl-2 pt-2  bg-white">
+                    <p class="text-muted" >Searching ......</p>
+                  </li>
+                  <li *ngIf="noMovieFound" class="dropdown-item pl-2 pt-2  bg-white">
+                    <p class="text-muted">No Movie Found.</p>
+                  </li>
+                </ul>
+
+              </div>
+            <!-- </div> -->
+        </form>
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" *ngIf="!(isAuthenticated | async)">
+          <a class="nav-link"  [routerLink]="[ '/login' ]" routerLinkActive="active" >Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!(isAuthenticated | async)">
+          <a class="nav-link "  [routerLink]="['/signup']" routerLinkActive="active">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated | async">
+          <a class="nav-link "  [routerLink]="[ '/userprofile' ]" routerLinkActive="active">Hello, {{userDetails?.userName}} </a>
+        </li>
+      </ul>
+      <button *ngIf="isAuthenticated | async"  class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+    </div>
+  </nav>
+</div>
+
+
+
+  <!-- Navbar  -->
+<div class=" container-fluid navbar d-flex justify-content-between 
+  align-items-center text-white sub-navbar  py-0 px-5">
+  <!-- List -->
+  <ul class="navbar-nav sub-navbar mx-3 mt-1 mt-lg-0 list-group-horizontal ">
+    <li class="nav-item" >
+      <a class="nav-link text-white "  [routerLink]="[ '/movies' ]" routerLinkActive="active" >Movies</a>
+    </li>
+    <!-- <li class="nav-item ml-4 " >
+      <a class="nav-link text-white"  [routerLink]="['/signup']" routerLinkActive="active">Sign Up</a>
+    </li> -->
+  </ul>
+
+  <div class="dropdown" *ngIf="userDetails?.isAdmin" >
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Admin Controls
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" [routerLink]="['/addmovie']" routerLinkActive="active" >ADD Movie</a>
+    </div>
+  </div>
+
+</div>
+

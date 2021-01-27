@@ -1,0 +1,35 @@
+
+<app-slideshow [slideMovies]="slidemovies"  ></app-slideshow>
+
+
+<div class=" my-5 ml-5">
+  <!-- Container For the Movies -->
+  <div class="moviecontainer ml-5 pt-5  "> 
+    <a class="card-link text-decoration-none " [routerLink]="[ '/movies' ]"  ><h3 class=" text-dark ml-3" >Recommended  Movies :</h3></a>
+    <div class="card-deck-container card-deck border-black d-flex flex-wrap flex-row mb-5">
+      
+      <div class="card displaycard-block position-relative" *ngFor="let movie of movies">
+      <div class=" card-img-top h-50 position-relative">  
+        <img class="h-100 w-100" [src]="movie?.movieImageUrl" alt="Card image cap" >
+        <div class="likecontainer position-absolute pl-4 text-white d-flex flex-row align-items-center justify-content-start" >
+          <i class="fa fa-heart text-danger ft-20" aria-hidden="true"></i>
+            <span class=" d-inline-block ml-4 ft-20 bold" >{{movie?.numberOfLikes}}</span>
+        </div>
+      </div>
+        <div class="card-body">
+          <h3><a class="card-title text-decoration-none stretched-link" [routerLink]="['/showdetail', movie?.id ]" >{{movie?.name}}</a></h3>
+          <p class="card-text text-dark ">{{LanguageLabel.get(movie.languague)}}</p>
+          <p class="card-text">{{GenresLabel.get(movie.gener)}} {{MovieTypeLabel.get(movie.movieType)}}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"> {{movie?.releaseDate | date:'fullDate'}} </small>
+        </div>
+      </div> 
+
+      <h3 *ngIf="movies==undefined || movies.length == 0 " class="ml-3 text-danger " >
+        Sorry, No Movies to Display
+      </h3>
+    </div>
+  </div>
+
+</div>

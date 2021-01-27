@@ -1,0 +1,369 @@
+// CSs for the cards for the movies , sports, events
+.card-img {
+    height: 500px;
+    width: 200px;
+}
+
+.likecontainer{
+    // top: 85%;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.363);
+}
+
+.displaycard-block {
+    max-width: 300px !important;
+    min-width: 250px !important;
+    height: 100%;
+    border-radius: 10px ;
+}
+
+.card-deck-container {
+    height: 90%;
+    padding: 2%;
+    overflow: visible;
+}
+
+.card-cardtext {
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.moviecontainer{
+    // border: 1px solid black;
+    height: 500px;
+    max-width: 80%;
+    overflow: hidden;
+}
+
+
+.showdetail{
+    height: 500px;
+    border: 1px solid black;
+
+}
+
+.bg-trans{
+    background-color: rgba(0, 0, 0, 0.719) !important;
+}
+
+
+// input.form-control,input.form-control:focus{
+//     background-color: #ffc107;
+//     color: black;
+//     border-color: black;
+//     border-radius: 0px;
+//     border-width: 2px;
+// }
+
+// input.form-control:focus{
+//     box-shadow: none;
+//     border-bottom-color: black;
+// }
+
+// button[type=submit].btn{
+//     border-radius: 20px;
+//     background-color: #000;
+//     color: #fff;
+// }
+
+// div.form-group label{
+//     color: black;
+//     font-weight: bold;
+// }
+
+// div.form-group.required>label:first-child:after{
+//     content:'*';
+//     color: #dc3545;
+// 	padding-left: 5px;
+// }
+
+#toast-container > div {
+    opacity:1;
+}
+
+// form{
+//     margin: 0px 16px;
+// }
+
+div.side-header{
+    border: 5px solid rgb(150, 148, 148);
+    border-radius: 250px;
+    overflow: hidden;
+}
+
+div.side-header>img{
+    height: 300px;
+    width: 350px;
+}
+
+.h-60{
+    height: 110px !important;
+    // border: 1px solid black;
+}
+
+.cursor-pointer:hover{
+    cursor: pointer !important;
+}
+
+.cursor-disable:disabled{
+    cursor:not-allowed !important;
+}
+
+.cursor-disable1:hover{
+    cursor:not-allowed !important;
+}
+
+
+.search-image{
+    height: 50px;
+    width: 50px !important;
+}
+
+.mainnavbar{
+    background-color: #333545 !important;
+}
+
+.sub-navbar {
+    background-color: #222539 !important;
+}
+
+.slideshowcontainer{
+    width: 100% !important ;
+    display: block;
+}
+
+.slide-image{
+    height: 300px !important ;
+}
+
+.filterrow{
+    min-height: 50px;
+}
+
+// Css for show details 
+
+.maincontainer{
+    background-size: cover !important;
+    height: 500px;
+    width: 100%;
+}
+
+.maincontainer > div{
+    background: linear-gradient(to right, rgba(31, 30, 30, 0.904) , rgba(49, 49, 43, 0.288)),
+    linear-gradient(to left, rgba(29, 27, 27, 0.377) , rgba(49, 49, 43, 0.014)),
+     no-repeat !important;
+     width : 100%;
+    height: 100%;
+}
+
+.image-container{
+    display: block;
+    height: 520px;
+    width: 300px;
+    border: 1px solid rgba(128, 128, 128, 0);
+    border-radius: 40px  ;
+}
+
+.image-container > img {
+    height: 420px;
+    width: 300px;
+    display: block;
+    border-radius: 50px;
+    // height: 400px !important;
+}
+
+.list-details{
+    list-style-type: disc;
+    width: 200%;
+    font-size: larger;
+}
+
+.list-details > li {
+    margin: 2% 3%;
+}
+
+.list-details > li:first-child{
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.tab-buttons{
+    height: fit-content !important;
+
+    width: fit-content !important ;
+    // height: 5%;
+}
+
+.castcontainer{
+    height: fit-content !important;
+    width: fit-content !important;
+}
+
+.castcontainer > img{
+    height: 150px !important;
+    width: 150px !important;
+}
+
+.castcontainer > .img2 {
+    height: 40px !important;
+    width: 40px !important;
+}
+
+.text-flow
+{
+  white-space: nowrap; 
+  width: 50px; 
+  font-size: small;
+  color: rgb(211, 210, 210);
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.circlediv{
+    border: 2px solid white;
+    width: fit-content !important;
+}
+
+.low_boder{
+    border-bottom: 5px solid blue;
+}
+
+.borderline{
+    position: absolute;
+    left: 0;
+    top: 95%;
+    height: 5px;
+    width: 100%;
+    background-color: rgb(0, 119, 255);
+    border-bottom-left-radius: 5px ;
+    border-bottom-right-radius: 5px ;
+}
+
+.ticketdiv{
+    bottom: 120%;
+    width: 150%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.233);
+    border-radius: 5px;
+    z-index: 111;
+}
+
+// .ticketsubdiv .ticketsubdiv::after {
+//     content: " dsadad";
+//     position: absolute;
+//     z-index: 154;
+//     top: 100%; /* At the bottom of the tooltip */
+//     left: 150%;
+//     margin-left: -5px;
+//     border-width: 15px;
+//     border-style: solid;
+//     border-color: black transparent transparent transparent;
+//   }
+
+.ticketdiv > div {
+    border-right: 1px solid rgba(128, 128, 128, 0.548);
+}
+.ticketdiv > div:last-child{
+    border-right: none;
+}
+
+
+.checkbox-container { 
+    position: relative;
+}
+
+.checkdiv {
+    width: 16px;
+}
+
+.checkbox-container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+}
+
+.checkmark {
+    /* margin: auto; */
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    display: block;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid rgba(148, 148, 148, 0.781);
+}
+
+.checkbox-container:hover input ~.checkmark { 
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.checkbox-container input:checked ~.checkmark { 
+    background-color: green;
+}
+
+.checkbox-container input:disabled ~.checkmark { 
+    background-color: red;
+}
+
+
+// .checkmark:after {
+//     content: "";
+//     position: absolute;
+//     display: none;
+// }
+
+// .checkbox-container input:checked ~.checkmark:after { 
+//     display: block;
+// }
+
+// .checkbox-container .checkmark:after {
+//     left: 4px;
+//     top: 1px;
+//     width: 4px;
+//     height: 8px;
+//     border: solid white;
+//     border-width: 0 2px 2px 0;
+//     transform: rotate(45deg);
+// }
+
+// Font Size
+.ft-20{
+    font-size: 20px !important;
+}
+.ft-30{
+    font-size: 30px !important;
+}
+
+
+// Booking Form CSS
+
+.bookinghall{
+    width: 100% !important ;
+    border: 1px solid rgb(190, 189, 189);
+}
+
+
+// Movies Tab
+
+.moviescardimg{
+    height: 250px;
+    width: 100px;
+}
+
+.displaycard-block-movies{
+    max-width: 250px;
+    max-height: fit-content;
+}
+
+.moviestabcontainer{
+    min-height: 500px;
+}

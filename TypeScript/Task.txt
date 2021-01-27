@@ -1,0 +1,17 @@
+
+TypeScript - Environment Setup
+TypeScript - Basic Syntax
+TypeScript - Types
+TypeScript - Variables
+TypeScript - Operators
+TypeScript - Decision Making
+TypeScript - Loops
+TypeScript - Functions
+TypeScript - Numbers
+TypeScript - Strings
+TypeScript - Arrays
+TypeScript - Tuples
+TypeScript - Union
+TypeScript - Interfaces
+TypeScript - Classes
+TypeScript - Objects

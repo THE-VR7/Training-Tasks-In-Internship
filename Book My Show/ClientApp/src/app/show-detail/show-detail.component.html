@@ -1,0 +1,95 @@
+
+
+<!-- <div *ngIf="movie != null && movie != undefined" class="container showdetail p-5 mt-5 d-flex flex-row justify-content-start bg-light ">
+    
+    <img  class=""       
+    [src]="movie?.movieImageUrl"
+    alt="">
+
+    <div class="ml-5">
+        <h1> Name :  {{movie.name}} </h1>
+
+        <p> genre : {{movie.gener}}</p>
+
+        <p> Release Date : {{movie.releaseDate | date:'fullDate'}}</p>
+
+        <p> language : {{movie.language}}</p>
+
+        <p> Format : {{movie.movieType}}</p>
+        <p> Certification : {{movie.certificateType}}</p> 
+    </div>   
+
+</div>
+
+<a name="" id="" class="container mx-5 btn btn-primary btn-lg m-auto d-flex justify-content-center " 
+[routerLink]="['/theatre',movie?.id]" routerLinkActive="router-link-active" 
+role="button">Book Now</a>
+
+
+<div class="container p-5" *ngIf="movie != null && movie != undefined">
+    <h3 class="">Description : </h3>
+    <div>
+        {{movie.description}}
+    </div>    
+</div> -->
+
+<!-- url('https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg')  -->
+
+
+<div class="maincontainer  "  *ngIf="movie"
+[ngStyle]="{'background-image': 'url(' + movie?.posterImageUrl + ')'}"
+>
+<div class="">
+<div class="container d-flex flex-row justify-content-start p-4 pl-1 pt-5" >
+    <div class="image-container  " >
+        <img [src]="movie?.movieImageUrl" alt="imgage of movie">
+    </div>
+    <div class="details-container ml-5 text-white " >
+        <h1 class="  " >{{movie?.name}}</h1>
+        <h3 class=" mt-4 " >
+            <i class="fa fa-heart text-white cursor-pointer" [hidden]="hasUserLiked && isLoggedIn" (click)="likeTheMovie()"  aria-hidden="true"></i>
+            <i class="fa fa-heart text-danger" [hidden]="!hasUserLiked || !isLoggedIn" aria-hidden="true"></i>
+            <span class=" d-inline-block ml-4 " >{{movie?.numberOfLikes}}</span>
+        </h3>
+
+        <ol class="list-group mt-3 list-details list-group-horizontal " >
+            <li>{{(""+movie?.movieLength).split('.')[0]}} hrs {{(""+movie?.movieLength).split('.')[1]}} mins</li>
+            <li>{{GenresLabel.get(movie.gener)}}</li>
+            <!-- <li>{{MovieTypeLabel.get(movie.movieType)}}</li> -->
+        </ol>
+        <p class="mt-3 bold">{{movie?.releaseDate | date:'fullDate'}}</p>
+
+        <a href="" class=" d-inline-block btn btn-link px-2 py-0 mt-3 text-dark bg-white text-decoration-none  tab-buttons " ><h2>{{MovieTypeLabel.get(movie.movieType)}}</h2></a>
+        <a href="" class=" d-inline-block btn btn-link px-2 py-0 mt-3 ml-4 text-dark bg-white  tab-buttons text-decoration-none" ><h2>{{LanguageLabel.get(movie.languague)}}</h2></a>
+
+        <a name="" id="" class="container mt-5 w-75
+         btn btn-primary btn-lg " 
+        [routerLink]="['/theatre',movie?.id]" routerLinkActive="router-link-active" 
+        role="button">Book Now</a>
+
+    </div>
+</div>
+</div>
+</div>
+
+<div class="container mt-5 " >
+    <h2>About the Movie</h2>
+    <p>{{movie?.description}}</p>
+</div>
+
+<div class=" container my-5 " *ngIf="movie?.casts" >
+    <h2>Cast & Crew : </h2>
+
+    <div class=" mt-4 pt-2 d-flex flex-row flex-wrap ">
+
+        <!--  Person Image with their name and Role -->
+        <div *ngFor="let cast of movie?.casts" class=" castcontainer d-flex flex-column justify-content-center align-items-center mr-5" >
+            <img class=" rounded-circle " [src]="cast?.profileImageUrl" alt="castImage">
+            <h4>{{cast?.name}}</h4>
+            <p class=" text-secondary " >{{RoleLabel.get(cast.role)}}</p>
+        </div>
+
+    </div>
+
+</div>
+ 

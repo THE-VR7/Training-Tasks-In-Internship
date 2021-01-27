@@ -1,0 +1,150 @@
+
+
+<div class="container mt-3 mb-4 bg-light ">
+    <h1 class=" d-flex justify-content-center ">Add Movie</h1>    
+        
+        <!-- <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.UserName">
+                <span *ngIf="movieForm?.get('UserName')?.hasError(validation.type) && (movieForm?.get('UserName')?.dirty || movieForm?.get('UserName')?.touched )">{{validation.message}}</span>
+        </p> -->
+
+        <div class="col-md-10  ">
+          <form [formGroup]="movieForm"  (submit)="onSubmit()">
+            
+            <div class="form-group required d-block h-60 ">
+              <label>Name</label>
+              <input class="form-control" formControlName="name" type="text" >
+              <label class="text-danger"  *ngIf="movieForm.get('name')?.touched && movieForm.get('name')?.errors?.required">This field is mandatory.</label>
+            </div>
+            
+            <div class="form-group required h-60 mt-n4 ">
+              <label>MovieImageUrl</label>
+              <input class="form-control" formControlName="movieImageUrl" type="text" >
+              <label class="text-danger" *ngIf="movieForm?.get('movieImageUrl')?.touched && movieForm?.get('movieImageUrl')?.errors?.required">This field is mandatory.</label>
+            </div>
+
+            <div class="form-group required h-60 mt-n4 ">
+                <label>PosterImageUrl</label>
+                <input class="form-control" formControlName="posterImageUrl" type="text" >
+                <label class="text-danger" *ngIf="movieForm?.get('posterImageUrl')?.touched && movieForm?.get('posterImageUrl')?.errors?.required">This field is mandatory.</label>
+            </div>
+    
+            <div class="form-group required h-60 mt-n4 ">
+              <label>Description</label>
+              <input class="form-control" formControlName="description" type="text"  >
+              <label class="text-danger" *ngIf="movieForm?.get('description')?.touched && movieForm?.get('description')?.errors?.required">This field is mandatory.</label>
+            </div>
+
+            <div class="form-group required h-60 mt-n4 ">
+                <label>MovieLength</label>
+                <input class="form-control" formControlName="movieLength" type="number"  >
+                <label class="text-danger" *ngIf="movieForm?.get('movieLength')?.touched && movieForm?.get('movieLength')?.errors?.required">This field is mandatory.</label>
+            </div>
+
+            <div class="form-group required h-60 mt-n4 ">
+            <label>ReleaseDate</label>
+            <input class="form-control" formControlName="releaseDate" type="date" >  
+            <label class="text-danger" *ngIf="movieForm?.get('releaseDate')?.touched && movieForm?.get('releaseDate')?.errors?.required">This field is mandatory.</label>
+            </div>  
+
+            <div class="form-group required h-60 mt-n4 ">
+                <label>Language</label>
+                <select id="Languague" class=" form-control " formControlName="language">
+                    <option *ngFor="let key of languageKeys" [ngValue]='key'>{{Language[key]}}</option>
+                </select>                             
+                <label class="text-danger" *ngIf="movieForm?.get('language')?.touched && movieForm?.get('language')?.errors?.required">This field is mandatory.</label>
+            </div> 
+
+            <div class="form-group required h-60 mt-n4 ">
+                <label>CertificateType</label>
+                <select id="CertificateType" class=" form-control " formControlName="certificateType">
+                    <option *ngFor="let key of generKeys" [ngValue]='key'>{{CertificateType[key]}}</option>
+                </select>                             
+                <label class="text-danger" *ngIf="movieForm?.get('certificateType')?.touched && movieForm?.get('certificateType')?.errors?.required">This field is mandatory.</label>
+            </div> 
+                
+            <div class="form-group required h-60 mt-n4 ">
+                <label>Gener</label>
+                <select id="Gener" class=" form-control " formControlName="gener">
+                    <option *ngFor="let key of movieTypeKeys" [ngValue]="key">{{Gener[key]}}</option>
+                </select>                             
+                <label class="text-danger" *ngIf="movieForm?.get('gener')?.touched && movieForm?.get('gener')?.errors?.required">This field is mandatory.</label>
+            </div> 
+            
+            <div class="form-group required h-60 mt-n4 ">
+                <label>MovieType</label>
+                <select id="MovieType" class=" form-control " formControlName="movieType">
+                    <option *ngFor="let key of certificateTypeKeys" [ngValue]="key">{{MovieType[key]}}</option>
+                </select>                             
+                <label class="text-danger" *ngIf="movieForm?.get('movieType')?.touched && movieForm?.get('movieType')?.errors?.required">This field is mandatory.</label>
+            </div> 
+            
+
+            <p>Enter Cast Details :</p>
+
+
+            <div *ngFor="let cast of formArray.controls; let i = index" class="list-group mt-3">
+                
+                <div class=" d-flex justify-content-between flex-row" >
+                    <h5 class="card-title ">Cast {{i + 1}}</h5>
+
+                    <div *ngIf="i!=0"  class=" d-flex flex-row justify-content-center " >
+                        <a (click)="removeCast(i)" class=" cursor-pointer card-link text-danger " > <i class="fa fa-minus-square" aria-hidden="true"></i>  Remove Cast</a>
+                    </div>
+
+                </div>
+                
+                <div class="list-group-item  p-4 ">
+                    <div [formGroup]="$any(cast)" class=" mt-3 ">                    
+                        <div class="form-group required h-60 mt-n4 ">
+                            <label>Name</label>
+                            <input class="form-control" formControlName="name" type="text" >  
+                            <label class="text-danger" *ngIf="cast.get('name')?.errors?.required && cast.get('name')?.touched">This field is mandatory.</label>
+                        </div>
+
+                        <div class="form-group required h-60 mt-n4 ">
+                            <label>Description</label>
+                            <input class="form-control" formControlName="description" type="text" >  
+                            <label class="text-danger" *ngIf="cast.get('description')?.errors?.required && cast.get('description')?.touched">This field is mandatory.</label>
+                        </div>
+
+                        <div class="form-group required h-60 mt-n4 ">
+                            <label>ProfileImageUrl</label>
+                            <input class="form-control" formControlName="profileImageUrl" type="text" >  
+                            <label class="text-danger" *ngIf="cast.get('profileImageUrl')?.errors?.required && cast.get('profileImageUrl')?.touched">This field is mandatory.</label>
+                        </div>
+                        
+                        <div class="form-group required h-60 mt-n4 ">
+                            <label>Gender</label>
+                            <select id="Gender" class=" form-control " formControlName="gender">
+                                <option value="" disabled hidden selected>Select the Gender</option>
+                                <option *ngFor="let key of genderKeys" [ngValue]="key">{{Gender[key]}}</option>
+                            </select> 
+                            <label class="text-danger" *ngIf="cast.get('gender')?.errors?.required && cast.get('gender')?.touched">This field is mandatory.</label>
+                        </div>
+
+                        <div class="form-group required h-60 mt-n4 ">
+                            <label>Role</label>
+                            <select id="Role" class=" form-control " formControlName="role">
+                                <option value=""s disabled hidden selected>Select the Role</option>
+                                <option *ngFor="let key of roleKeys" [ngValue]="key">{{Role[key]}}</option>
+                            </select>                             
+                            <label class="text-danger" *ngIf="cast.get('role')?.errors?.required && cast.get('role')?.touched">This field is mandatory.</label>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <a (click)="addCast()" class=" float-right cursor-pointer card-link " > <i class="fa fa-plus-square" aria-hidden="true"></i> Add Cast</a>
+
+
+            <div class="form-row mt-5 ">
+                <div class="form-group col-md-8 offset-md-2">
+                  <button type="submit" class="btn btn-lg btn-block bg-primary " [disabled]="!movieForm.valid">ADD Movie</button>
+                </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    

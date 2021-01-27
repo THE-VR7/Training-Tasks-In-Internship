@@ -1,0 +1,192 @@
+
+<div class="container-fluid d-flex flex-row justify-content-between pt-3 mainnavbar" >
+
+    <!-- Display the movie information -->
+    <div *ngIf="movie" class=" pl-5 text-white " >
+        <h2>{{movie?.name}}</h2>
+        <div class=" d-flex flex-row jusify-content-around w-100 align-items-center " >
+            <div class="circlediv rounded-circle p-1 border-white mr-4" >
+                {{MovieTypeLabel.get(movie.movieType)}}
+            </div>
+            <h3 class=" d-flex flex-row jusify-content align-items-center mr-4 " >
+                <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                <span class=" d-inline-block ml-3" >{{movie?.numberOfLikes}}</span>
+            </h3>
+            <div class="circlediv rounded-circle p-1 border-secondary text-secondary mr-2" >
+                {{GenresLabel.get(movie.gener)}}
+            </div>
+            <div class="circlediv rounded-circle p-1 border-secondary text-secondary mr-4" >
+                {{LanguageLabel.get(movie.languague)}}
+            </div>
+            <div class=" p-1 mr-4" >
+                {{movie?.releaseDate | date:'fullDate'}}
+            </div>
+            <div class=" d-flex flex-row align-items-center justify-content-end " >
+                <i class="fa fa-clock-o" aria-hidden="true"></i> <span class=" d-inline-block ml-2 " >{{(""+movie?.movieLength).split('.')[0]}} hrs {{(""+movie?.movieLength).split('.')[1]}} mins</span>  
+            </div>
+        </div>
+    </div>
+    <!-- Display the cast & Crew -->
+    <div class=" text-white col-5 "  >
+        <h6>Cast & Crew </h6>
+        <div *ngIf="movie?.casts" class=" mt-1 py-2 d-flex flex-row align-items-start flex-wrap justify-content-start ">
+            <!--  Person Image with their name and Role -->
+            <div *ngFor="let cast of movie?.casts" class=" castcontainer d-flex flex-column justify-content-center align-items-center mr-5" >
+                <img class=" img2 rounded-circle " [src]="cast?.profileImageUrl" alt="">
+                <div class=" text-flow pl-1 " >{{cast?.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light pl-2 ">
+    
+    <div class=" container-fluid d-flex flex-row flex-wrap justify-content-between " >
+        
+        <!-- This will contain the Date for the Shows -->
+        <div class=" col-4 col-sm-6 " >
+            <a class="navbar-brand " href="#">Filters</a>
+        </div>
+
+        <div class=" col-4 col-sm-6 py-0 " >
+            <ul class=" list-group list-group-horizontal mr-5 ">
+                
+                <li class=" list-group-item dropdown low_boder position-relative ">
+                  <a class=" dropdown-toggle d-block text-dark text-decoration-none" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter Price Range
+                  </a>
+                  <div *ngIf="priceFilters.length > 0" class=" borderline " ></div>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-item bg-white position-relative " *ngFor="let item of leastPriceArray;let i=index"  >
+                        <input class=" cursor-pointer stretched-link " type="checkbox"  
+                        (change)="AddPriceFilters(i)"
+                        [checked]="this.priceFilters.includes(i)"
+                        id="inlineCheckbox{{i}}"> 
+                        <label class="form-check-label cursor-pointer ml-2" for="inlineCheckbox{{i}}">Rs {{item}} - {{highestPriceArray[i]}} </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class=" list-group-item dropdown low_boder position-relative ml-5">
+                    <a class=" dropdown-toggle d-block text-dark text-decoration-none" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Filter Show Timings
+                    </a>
+                    <div *ngIf="timimgsFilters.length > 0" class=" borderline " ></div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <div class="dropdown-item bg-white position-relative " 
+                          *ngFor="let item of startTimings;let i=index"  >
+                          <input class=" cursor-pointer stretched-link " type="checkbox"  
+                          (change)="AddTimingsFilters(i)"
+                          [checked]="this.timimgsFilters.includes(i)"
+                          id="inlineCheckbox1{{i}}"> 
+                          <label class="form-check-label cursor-pointer ml-2 " for="inlineCheckbox1{{i}}">
+                             <span class=" text-dark ">{{timeArray[i]}} </span>  <span class=" text-secondary small ml-3 " > {{item}} - {{endTimings[i]}} </span> 
+                          </label>
+                      </div>
+                    </div>
+                  </li>
+              </ul>
+        </div>
+    </div>
+  </nav>
+
+
+
+<div class=" row mx-2 d-flex flex-row flex-wrap algin-items-center filterrow " >
+        
+    <a class=" btn btn-link rounded-pill text-decoration-none border-dark m-1 p-1 pl-2 text-black-50" 
+        (click)="AddPriceFilters(item)" 
+        *ngFor="let item of priceFilters; let i = index" 
+        > 
+        Rs {{leastPriceArray[item]}} - {{highestPriceArray[item]}}
+        <i class="fa fa-times-circle-o ml-1" aria-hidden="true"></i>
+    </a>
+
+    <a class=" btn btn-link rounded-pill text-decoration-none text border-dark m-1 p-1 pl-2 text-black-50" 
+        (click)="AddTimingsFilters(item)" 
+        *ngFor="let item of timimgsFilters; let i = index" 
+        > 
+        {{timeArray[i]}} {{startTimings[i]}} - {{endTimings[i]}}
+        <i class="fa fa-times-circle-o ml-1" aria-hidden="true"></i>
+    </a>
+
+</div>  
+
+
+<div class="container mt-2 mb-5 ">
+    <ul class="list-group">
+        <li *ngFor="let profile of movieHallProfiles;let i=index"
+        class="list-group-item d-flex justify-content-between align-items-center mt-4 ">
+            <div class="row col-10 " >
+                <h5 class=" col-4 align-content-center " >{{profile?.movieHall?.name}}</h5>
+                <div class=" col-6 d-flex justify-content-around align-items-center flex-row flex-wrap position-relative " >
+                    <div 
+                    (mouseover)="currentDiv=i" (mouseout)="currentDiv=-11"
+                    class="circlediv rounded-pill p-1 border-secondary stretched-link text-secondary" >
+                    <!-- {{profile?.showRecord?.showTiming?.hours }}:{{profile?.showRecord?.showTiming?.minutes }} -->
+                    {{'1990-10-10 '+ (profile.showRecord.showTiming.hours+":"+profile?.showRecord?.showTiming?.minutes) | date:'shortTime' }}
+                    </div> 
+                    
+                    <div (mouseover)="currentDiv=i" (mouseout)="currentDiv=-11" 
+                    class="circlediv rounded-pill px-2 mt-2 align-self-end align-content-center border-secondary text-secondary " >
+                    {{profile?.showRecord?.dateOfShow | date:'fullDate'}}
+                    </div>  
+                    
+                    <div *ngIf="currentDiv == i"  
+                    class=" ticketdiv d-flex flex-row justify-content-around p-1 position-absolute " >
+                        <div class=" d-flex flex-column align-items-center pr-3 justify-content-center ">
+                            <p class=" mb-0 ">Lower Seat Price</p>
+                            <p class=" mb-0 ">Rs {{profile?.movieHall?.frontRowSeatsPrice }}</p>
+                        </div>
+                        <div class=" d-flex flex-column pr-3 align-items-center ">
+                            <p class=" mb-0 ">Middle Seat Price</p>
+                            <p class=" mb-0 ">Rs {{profile?.movieHall?.middleRowSeatsPrice }}</p>
+                        </div>
+                        <div class=" d-flex flex-column align-items-center">
+                            <p class=" mb-0 " >Upper Seat Price</p>
+                            <p class=" mb-0 ">Rs {{profile?.movieHall?.lastRowSeatsPrice }}</p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <!-- [routerLink]="['/bookingform']" [state]="profile" -->
+            <button type="button" 
+            data-toggle="modal" 
+            data-target="#exampleModalCenter"  
+            (click) = "passShowProfile(i)"
+            class="btn btn-lg btn-primary btn-lg btn-block h-25 w-25 " >
+                Book Seats
+            </button>
+        </li>
+
+
+        <li *ngIf="movieHallProfiles==undefined || movieHallProfiles.length == 0" class="list-group-item" >
+            <h2 class=" text-danger ml-5 offset-3" > No Theatres Available </h2>
+        </li>
+    </ul>
+</div> 
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header pb-1 ">
+          <h3 class="modal-title " id="exampleModalLongTitle">Book Your Ticket</h3>
+          <button type="button" class="close " id="closeModal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class=" ft-30 " >&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-booking-form [currentshowprofile]="showselected"  ></app-booking-form>
+        </div>
+      </div>
+    </div>
+  </div>

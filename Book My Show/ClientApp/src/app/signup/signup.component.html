@@ -1,0 +1,79 @@
+
+
+<div class="container mt-3 mb-4 bg-light ">
+    
+
+<h1 class=" d-flex justify-content-center ">User SignUp</h1>    
+
+<div class="row mt-4">
+    
+    <div class="col-md-6">
+        
+        <div class="row h-75  d-flex justify-content-center ">
+            <div class="col-md-8 my-auto side-header ">
+            <img src="/assets/images/defaultuser.jpg" class="mx-auto d-block">
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="col-md-6">
+      <form [formGroup]="signupForm"  (submit)="onSubmit()">
+        
+        <div class="form-group required d-block h-60 ">
+          <label>Username</label>
+          <input class="form-control" formControlName="UserName">
+          <label class="text-danger"  *ngIf="signupForm.get('UserName')?.touched && signupForm.get('UserName')?.errors?.required">This field is mandatory.</label>
+        
+          <!-- <p class="invalid-feedback my-0" *ngFor="let validation of validationMessages.UserName">
+            <span *ngIf="signupForm?.get('UserName')?.hasError(validation.type) && (signupForm?.get('UserName')?.dirty || signupForm?.get('UserName')?.touched )">{{validation.message}}</span>
+          </p> -->
+ 
+        </div>
+        
+        <div class="form-group required h-60 mt-n4 ">
+          <label>Email</label>
+          <input class="form-control" formControlName="Email">
+          <label class="text-danger" *ngIf="signupForm?.get('Email')?.touched && signupForm?.get('Email')?.errors?.email">Invalid email address.</label>
+          <label class="text-danger" *ngIf="signupForm?.get('Email')?.touched && signupForm?.get('Email')?.errors?.required">This field is mandatory.</label>
+        </div>
+
+        <div class="form-group required h-60 mt-n4 ">
+          <label>MobileNumber</label>
+          <input class="form-control" formControlName="MobileNumber">
+          
+          <label class="text-danger" *ngIf="signupForm?.get('MobileNumber')?.touched && signupForm?.get('MobileNumber')?.errors?.required">This field is mandatory.</label>
+          <label class="text-danger" *ngIf="signupForm?.get('MobileNumber')?.touched && signupForm?.get('MobileNumber')?.errors?.minlength">Enter 10 digits</label>
+          <label class="text-danger" *ngIf="signupForm?.get('MobileNumber')?.touched && signupForm?.get('MobileNumber')?.errors?.pattern">Only Numbers Allowed</label>
+        </div>
+
+        <div class="form-group h-60 mt-n4">
+          <label>Full Name</label>
+          <input class="form-control" formControlName="FullName">
+        </div>
+
+        <div formGroupName="Passwords">
+          <div class="form-group required h-60 mt-n4">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="Password">
+            <label class="text-danger" *ngIf="signupForm.get('Passwords.Password')?.touched && signupForm.get('Passwords.Password')?.errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="signupForm.get('Passwords.Password')?.touched && signupForm.get('Passwords.Password')?.errors?.minlength">Minimum 4 characters required.</label>
+          </div>
+          <div class="form-group required h-60 mt-n4">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="ConfirmPassword">
+            <label class="text-danger" *ngIf="signupForm.get('Passwords.ConfirmPassword')?.touched && signupForm.get('Passwords.ConfirmPassword')?.errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="signupForm.get('Passwords.ConfirmPassword')?.touched && signupForm.get('Passwords.ConfirmPassword')?.errors?.passwordMismatch">Confirm Password does not match.</label>
+          </div>
+        </div>
+
+        <div class="form-row mt-1 ">
+          <div class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-lg btn-block bg-primary " [disabled]="!signupForm.valid">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

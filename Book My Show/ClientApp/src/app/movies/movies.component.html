@@ -1,0 +1,152 @@
+
+<app-slideshow [slideMovies]="slidemovies"></app-slideshow>
+
+<div class="container mt-5 pt-5 bg-light mb-5">
+    <div class="row">
+        <!-- Column for Filter Accodion -->
+        <div class=" col-4 ">
+            <h3>Filters</h3>
+
+            <div id="accordion" class=" sticky-top " >
+                
+                <!-- Language Filters -->
+                <div class="card">
+                    <div class="card-header  d-flex flex-row justify-content-between " id="headingOne">
+                    <div class="mb-0 w-75 position-relative ">
+                      <a class="btn btn-link stretched-link text-decoration-none " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Language
+                      </a>
+                    </div>
+                    <a class=" btn btn-link  text-decoration-none  text-muted "
+                    (click) = "languageFilters=[];moviesbyFilters()"
+                    >Clear </a>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" >
+                    <div class="card-body d-flex flex-row flex-wrap ">
+                        <a class=" btn rounded-pill btn-outline-primary m-1" 
+                        (click)="toggleLanguageFilter(item.key)" 
+                        *ngFor="let item of LanguageLabel | keyvalue" 
+                        [ngClass]="{active: languageFilters.indexOf(item.key) > -1 }"  > 
+                            {{item.value}} 
+                        </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Genres Filters -->
+                <div class="card">
+                  <div class="card-header d-flex flex-row justify-content-between " id="headingTwo">
+                    <div class="mb-0 w-75 position-relative">
+                      <a class="btn btn-link collapsed stretched-link text-decoration-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Genres
+                      </a>
+                    </div>
+                    <a class=" btn btn-link  text-decoration-none  text-muted " 
+                    (click) = "genresFilters=[];moviesbyFilters()"
+                    >Clear </a>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" >
+                    <div class="card-body">
+                        <a class=" btn rounded-pill btn-outline-primary m-1" 
+                        (click)="toggleGenersFilter(item.key)" 
+                        *ngFor="let item of GenresLabel | keyvalue" 
+                        [ngClass]="{active: genresFilters.indexOf(item.key) > -1 }"  > 
+                         {{item.value}} </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header d-flex flex-row justify-content-between " id="headingThree">
+                    <div class="mb-0 w-75 position-relative">
+                      <a class="btn btn-link collapsed stretched-link text-decoration-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Format
+                      </a>
+                    </div>
+                    <a class=" btn btn-link  text-decoration-none  text-muted " 
+                    (click) = "movieTypeFilters=[];moviesbyFilters()"
+                    >Clear </a>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" >
+                    <div class="card-body">
+                        <a class=" btn rounded-pill btn-outline-primary m-1 " 
+                        (click)="toggleFormatFilter(item.key)" 
+                        *ngFor="let item of MovieTypeLabel | keyvalue" 
+                        [ngClass]="{active: movieTypeFilters.indexOf(item.key) > -1 }"> {{item.value}} </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <!-- Column for the Movies Section and the Selected Filters -->
+        <div class="ml-5 col-7 mb-5" >
+
+            <h3>Movies</h3>
+            
+            <!-- Display the List of the Selected Filters -->
+            <div class="row d-flex flex-row flex-wrap algin-items-center filterrow " >
+                <a class=" btn rounded-pill btn-outline-primary m-1" 
+                (click)="toggleLanguageFilter(item)" 
+                *ngFor="let item of languageFilters" 
+                [ngClass]="{active: languageFilters.indexOf(item) > -1 }"  > 
+                    {{LanguageLabel.get(item)}} 
+                </a>
+
+                <a class=" btn rounded-pill btn-outline-primary m-1" 
+                (click)="toggleGenersFilter(item)" 
+                *ngFor="let item of genresFilters" 
+                [ngClass]="{active: genresFilters.indexOf(item) > -1 }"  > 
+                    {{GenresLabel.get(item)}} 
+                </a>
+
+                <a class=" btn rounded-pill btn-outline-primary m-1" 
+                (click)="toggleFormatFilter(item)" 
+                *ngFor="let item of movieTypeFilters" 
+                [ngClass]="{active: movieTypeFilters.indexOf(item) > -1 }"  > 
+                    {{MovieTypeLabel.get(item)}} 
+                </a>
+            </div>
+
+            <div class=" row d-flex mt-4 flex-wrap justify-content-between p-3 bg-white" >
+                <a class=" btn btn-link text-decoration-none  text-dark  " (click)="comingSoonMovies()" >Coming Soon</a>
+                <a class=" btn btn-link text-decoration-none  " (click)="exploreMovies()" >Explore Movies</a>
+            </div>
+
+            <h3 class=" ml-4 mt-3 " >Movies : </h3>
+            <!-- Dislay the Cards of the movies -->
+            <div class="row d-flex flex-row flex-wrap moviestabcontainer  align-items-start justify-content-around mb-5">
+              
+              <div class="card displaycard-block-movies pb-0 position-relative mt-3 " *ngFor="let movie of filterMovies">
+                
+                <!-- <img class="card-img-top moviescardimg" [src]="movie?.movieImageUrl" alt="Card image cap" > -->
+                
+                <div class=" card-img-top moviescardimg position-relative">  
+                  <img class="h-100 w-100" [src]="movie?.movieImageUrl" alt="Card image cap" >
+                  <div class="likecontainer position-absolute pl-4 text-white d-flex flex-row align-items-center justify-content-start" >
+                    <i class="fa fa-heart text-danger ft-20" aria-hidden="true"></i>
+                      <span class=" d-inline-block ml-4 ft-20 bold" >{{movie?.numberOfLikes}}</span>
+                  </div>
+                </div>
+
+                <h5 class=" mx-auto " ><a class="card-title text-decoration-none stretched-link" [routerLink]="['/showdetail', movie?.id ]" >{{movie?.name}}</a></h5>
+                <div class=" d-flex flex-row justify-content-around text-secondary mb-0 p-0">
+                  <p class="mb-0 ">{{LanguageLabel.get(movie.languague)}}</p>
+                  <p class="mb-0">{{GenresLabel.get(movie.gener)}}</p>
+                  <p class="mb-0">{{MovieTypeLabel.get(movie.movieType)}}</p>
+                </div>
+                <div class="card-footer mt-0">
+                  <small class="text-muted"> {{movie?.releaseDate | date:'fullDate'}} </small>
+                </div>
+              </div> 
+        
+              <h3 *ngIf="filterMovies==undefined || filterMovies.length == 0 " class="ml-3 text-danger " >
+                Sorry, No Movies to Display
+              </h3>
+            </div>
+        </div>
+
+
+    </div>
+</div>
